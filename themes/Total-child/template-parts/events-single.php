@@ -17,8 +17,8 @@
 
 		<div class="header-content">
 			<div class="event-date">
-				<p><?php echo date( 'j', strtotime( CFS()->get('my_date') ) ); ?></p>
-				<p><?php echo date( 'M', strtotime( CFS()->get('my_date') ) ); ?></p>
+				<p class="date-day"><?php echo date( 'j', strtotime( CFS()->get('my_date') ) ); ?></p>
+				<p class="date-month"><?php echo date( 'M', strtotime( CFS()->get('my_date') ) ); ?></p>
 			</div>
 
 			<div>
@@ -58,15 +58,19 @@
 		</section>
 		<section class="event-schedule">
 			<h2 class="schedule-title">Our Schedule</h2>
-			<ul class="schedule-container">
-				<?php $schedule_list = CFS()->get('event_schedule'); ?>
-				<?php foreach ( $schedule_list as $schedule_item ) : ?>
-				<li class="schedule-item">
-					<p><?php echo wp_kses( $schedule_item['schedule_item_name'],array('br')  ); ?></p>
-					<p><?php echo wp_kses( $schedule_item['schedule_item_time'],array('br')  ); ?></p>
-				</li>
-				<?php endforeach; ?>
-			</ul>
+			<div class="schedule-slider">
+				<div class="control_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+  			<div class="control_prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<ul>
+					<?php $schedule_list = CFS()->get('event_schedule'); ?>
+					<?php foreach ( $schedule_list as $schedule_item ) : ?>
+					<li class="schedule-item">
+						<p><?php echo wp_kses( $schedule_item['schedule_item_name'],array('br')  ); ?></p>
+						<p><?php echo wp_kses( $schedule_item['schedule_item_time'],array('br')  ); ?></p>
+					</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
 		</section>
 		<?php
 			wp_link_pages( array(

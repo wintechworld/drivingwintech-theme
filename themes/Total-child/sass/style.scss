@@ -13,6 +13,7 @@ Tags:
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
+# Fonts
 # Typography
 # Forms
 # Accessibility
@@ -33,6 +34,7 @@ Tags:
 
 // CSS included in style.css.
 
+@import "fonts";
 @import "typography";
 @import "forms";
 @import "widgets";
