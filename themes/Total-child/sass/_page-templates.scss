@@ -200,6 +200,8 @@
   text-align: center;
 
   .schedule-title {
+    margin: 0;
+    padding: 2rem 0 0 0;
     color: white;
     font-size: 1.6153846154rem;
     font-weight: bold;
@@ -207,32 +209,29 @@
   }
 
   .schedule-slider {
-    height: 200px;
+    height: 150px;
     width: 100%;
     position: relative;
     overflow: hidden;
-    
+
     ul {
       margin: 0 auto;
       width: 90%;
       padding: 0;
       position: relative;
       overflow: hidden;
-      // display: flex;
-      // flex-direction: row;
       list-style-type: none;
     }
 
     .schedule-item {
-      // width: 25%;
-      float: left;
-      // flex-basis: 50%;
       height: 150px;
       width: 50%;
-      position: relative;
-      display: block;
       margin: 0;
       padding: 0;
+      
+      display: block;
+      float: left;
+      position: relative;
 
       color: white;
       line-height: 150px;
@@ -244,18 +243,25 @@
       }
     }
 
+    .item-container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
     .control_prev, .control_next {
       height: auto;
       width: auto;
       padding: 4% 3%;
       position: absolute;
-      top: 40%;
+      top: 26%;
       z-index: 999;
       display: block;
       
       color: $color__event-red;
       cursor: pointer;
-      font-size: 1.6153846154rem;
+      font-size: 2.6153846154rem;
       font-weight: 600;
       text-decoration: none;
       opacity: 0.8;

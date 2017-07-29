@@ -3,10 +3,7 @@
 
     var slideWidth = $('.schedule-slider ul li').width();
     var slideHeight = $('.schedule-slider ul li').height();
-    // var slideCount = $('.schedule-slider ul li').length;
-    // var nextArrows = $('.control_prev').width();
-    
-    // $('.schedule-slider ul').css({ padding: nextArrows });
+
     $('.schedule-slider ul').css({ height: slideHeight });
     $('.schedule-slider ul li:last-child').prependTo('.schedule-slider ul');
 

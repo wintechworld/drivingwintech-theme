@@ -65,8 +65,10 @@
 					<?php $schedule_list = CFS()->get('event_schedule'); ?>
 					<?php foreach ( $schedule_list as $schedule_item ) : ?>
 					<li class="schedule-item">
-						<p><?php echo wp_kses( $schedule_item['schedule_item_name'],array('br')  ); ?></p>
-						<p><?php echo wp_kses( $schedule_item['schedule_item_time'],array('br')  ); ?></p>
+						<div class="item-container">
+							<p><?php echo wp_kses( $schedule_item['schedule_item_name'],array('br')  ); ?></p>
+							<p><?php echo wp_kses( $schedule_item['schedule_item_time'],array('br')  ); ?></p>
+						</div>
 					</li>
 					<?php endforeach; ?>
 				</ul>

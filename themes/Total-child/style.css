@@ -271,12 +271,14 @@ Tags:
   background-color: #232323;
   text-align: center; }
   .event-schedule .schedule-title {
+    margin: 0;
+    padding: 2rem 0 0 0;
     color: white;
     font-size: 1.6153846154rem;
     font-weight: bold;
     text-transform: uppercase; }
   .event-schedule .schedule-slider {
-    height: 200px;
+    height: 150px;
     width: 100%;
     position: relative;
     overflow: hidden; }
@@ -288,30 +290,42 @@ Tags:
       overflow: hidden;
       list-style-type: none; }
     .event-schedule .schedule-slider .schedule-item {
-      float: left;
       height: 150px;
       width: 50%;
-      position: relative;
-      display: block;
       margin: 0;
       padding: 0;
+      display: block;
+      float: left;
+      position: relative;
       color: white;
       line-height: 150px;
       text-align: center; }
       .event-schedule .schedule-slider .schedule-item p {
         margin: 0;
         line-height: 14px; }
+    .event-schedule .schedule-slider .item-container {
+      height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
     .event-schedule .schedule-slider .control_prev, .event-schedule .schedule-slider .control_next {
       height: auto;
       width: auto;
       padding: 4% 3%;
       position: absolute;
-      top: 40%;
+      top: 26%;
       z-index: 999;
       display: block;
       color: #d92a48;
       cursor: pointer;
-      font-size: 1.6153846154rem;
+      font-size: 2.6153846154rem;
       font-weight: 600;
       text-decoration: none;
       opacity: 0.8; }
