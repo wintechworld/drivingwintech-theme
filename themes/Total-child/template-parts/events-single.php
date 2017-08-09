@@ -17,11 +17,11 @@
 
 		<div class="header-content">
 			<div class="event-date">
-				<p class="date-day"><?php echo date( 'j', strtotime( CFS()->get('my_date') ) ); ?></p>
-				<p class="date-month"><?php echo date( 'M', strtotime( CFS()->get('my_date') ) ); ?></p>
+				<p class="date-day"><?php echo date( 'j', strtotime( CFS()->get('date_of_event') ) ); ?></p>
+				<p class="date-month"><?php echo date( 'M', strtotime( CFS()->get('date_of_event') ) ); ?></p>
 			</div>
 
-			<div>
+			<div class="location-container">
 				<i class="fa fa-map-marker" aria-hidden="true"></i>
 				<p class="event-location"><?php echo CFS()->get('event_location') ?></p>
 			</div>
@@ -30,7 +30,7 @@
 				<i class="fa fa-clock-o" aria-hidden="true"></i>
 				<p class="event-hours"><?php echo CFS()->get('event_hours') ?></p>
 			</div>
-			<a class="picatic-link" href="<?php echo CFS()->get( 'picactic_link' ); ?>" target="_blank"><p class="link-text">Register for this event</p></a>
+			<button class="button-link"><a href="<?php echo CFS()->get( 'picactic_link' ); ?>" target="_blank">Register for this event</a></button>
 		</div>
 
 	</header><!-- .entry-header -->

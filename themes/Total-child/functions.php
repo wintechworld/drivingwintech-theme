@@ -18,4 +18,37 @@ function child_theme_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'child_theme_enqueue_styles' );
 
+/**
+ * Get selected events by location taxonomy.
+ *
+ * @return WP_Query location in the taxonomy term if one was selected, else all.
+ */
+function get_locations_in_taxonomy_term() {
+	return new WP_Query( array(
+			'post_type'      => 'events',
+			'posts_per_page' => 500, // max # of options in dropdown
+			'tax_query'      => get_locations_in_taxonomy_term_tax_query(),
+	) );
+}
+
+function get_locations_in_taxonomy_term_tax_query() {
+	$selected_term = get_selected_location_dropdown_term();
+	// If a term has been selected, use that in the taxonomy query.
+	if ( $selected_term ) {
+		return array(
+			array(
+				'taxonomy' => 'location',
+				'field'    => 'term_id',
+				'terms'    => $selected_term,
+			),
+		);
+	}
+	return array();
+}
+
+function get_selected_location_dropdown_term() {
+	return isset( $_GET[ 'location' ] ) && $_GET[ 'location' ] ? sanitize_text_field( $_GET[ 'location' ] ) : '';
+}
+
+
 ?>

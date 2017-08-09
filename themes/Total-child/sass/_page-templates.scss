@@ -1,8 +1,390 @@
 /*--------------------------------------------------------------
 # Page Templates
 --------------------------------------------------------------*/
+/***********************/
+/* Events Archive page */
+/***********************/
 
+.post-type-archive-events, .post-type-archive-events .content-area {
+  max-width: 100%;
+  width: 100%;
+  font-family: "nunito", sans-serif;
+}
+
+.events-page-header {
+  height: 17.857142857rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url('../../assets/map-background.png');
+  background-position: 50% 100%;
+  background-size: 53.571428571rem;
+
+  @include desktop {
+    padding: 0px 8rem;
+    height: 38rem;
+    background-size: cover;
+  }
+
+  .events-page-title {
+    display: none;
+  }
+
+  .featured-event {
+    height: 80%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    background: #FFF;
+    box-shadow: 5px 5px 5px rgba(46, 46, 46, 0.42);
+    font-family: 'nunito';
+    font-size: 1rem;
+
+    @include desktop {
+      height: 60%;
+      width: 40%;
+    }
+  }
+}
+
+.dropdown-menus {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+
+  .location-dropdown-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .location-category-select {
+    padding: 0 0.5rem;
+    border: 1px solid rgb(137, 137, 137);
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    border-radius: 3px;
+
+    @include desktop {
+      width: 30%;
+    }
+  }
+  
+  .fa-map-marker {
+    padding: 0 0.5rem;
+    color: $color__event-red;
+  }
+
+  #location {
+    width: 100%;
+    border: none;
+    color: $color__text-grey;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    -webkit-appearance: none;
+  
+    @include desktop {
+      font-size: 1.5rem;
+    }
+  }
+
+  .search-button {
+    background: none;
+    color: rgb(168, 168, 168);
+    font-size: 2.5rem;
+    margin: 0;
+    padding: 0 1rem;
+  }
+
+}
+
+.events-listings {
+  display: flex;
+  flex-wrap: wrap;
+
+  .type-events {
+    flex-basis: 50%;
+
+    @include desktop {
+      flex-basis: 25%;
+    }
+  }
+}
+
+.event-gradient {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))
+}
+
+.event-listing {
+  position: relative;
+  height: 170px;
+
+  @include desktop {
+    height: 350px;
+  }
+
+  .event-image {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+
+    img {
+      min-height: 100%;
+      width: auto;
+      max-width: none;
+      position: absolute;
+    }
+  }
+
+  .event-date {
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: $color__event-red;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.4pt;
+    line-height: 14px;
+    text-transform: uppercase;
+    z-index: 999;
+
+    @include desktop {
+      padding: 1rem 1.5rem;
+      right: 25px;
+    }
+
+    .date-day {
+      font-size: 1.6153846154rem;
+
+      @include desktop {
+        font-size: 2rem;
+      }
+    }
+    .date-month {
+      font-size: 0.7692307692rem;
+
+      @include desktop {
+        font-size: 1rem;
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .event-details {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    position: absolute;
+    bottom: 0;
+    color: #FFF;
+    font-size: 0.8rem;
+
+    @include desktop {
+      padding: 0.5rem 1.5rem;
+    }
+  }
+
+  .event-title {
+    margin: 0;
+    color: #FFF;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+
+    @include desktop {
+      font-size: 2.5rem;
+      line-height: 2.5rem;
+    }
+  }
+
+  .location-container {
+    @include desktop {
+      font-size: 1.5rem;
+    }
+  }
+
+  .event-location {
+    text-transform: uppercase;
+  }
+
+  .event-location, .event-hours {
+    display: inline-block;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .event-hours {
+    font-size: 0.9rem;
+
+    p {
+      display: inline-block;
+    }
+
+    @include desktop {
+      font-size: 1rem;
+    }
+  }
+}
+
+
+.contact-section, .sponsorship-section {
+  height: 275px;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include desktop {
+    height: 550px;
+  }
+
+  h2 {
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: 0.8pt;
+    text-transform: uppercase;
+
+    @include desktop {
+      font-size: 4rem;
+      line-height: 5rem;
+    }
+  }
+
+  p {
+    font-size: 1.20rem;
+
+    @include desktop {
+      font-size: 2rem;
+      padding: 2rem;
+    }
+  }
+}
+
+.contact-section {
+  align-items: center;
+  text-align: center;
+
+  @include desktop {
+    h2 {
+      width: 40%;
+    }
+
+    p {
+      width: 45%;
+    }
+  }
+}
+
+.sponsorship-section {
+  align-items: flex-start;
+  background-image:
+    linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../../assets/sponsor-background.jpg');
+  background-size: cover;
+  color: #FFF;
+  text-align: left;
+
+  @include desktop {
+    align-items: flex-end;
+    background-position: 50% 25%;
+
+    div {
+      width: 45%;
+    }
+  }
+
+  h2 {
+    color: #FFF;
+  }
+
+  p {
+    @include desktop {
+      padding: 0;
+    }
+  }
+
+  .sponsorship-thanks {
+    margin: 0.5rem 0;
+    color: rgb(255, 109, 109);
+    font-size: 0.8rem;
+    letter-spacing: 1.6pt;
+
+    @include desktop {
+      font-size: 2rem;
+    }
+  }
+}
+
+/******************/
+/* Shared Styles~ */
+/******************/
+
+.button-link {
+  padding: 0.8rem 1rem;
+  background: $color__event-red;
+  color: #FFF;
+  letter-spacing: 0.9pt;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  @include desktop {
+    font-size: 1.5rem;
+    padding: 1rem 1.5rem;
+  }
+
+  a {
+    color: #FFF;
+    text-decoration: none;
+  
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &:hover {
+    background: rgb(140,23,51);
+    text-decoration: none;
+  }
+}
+
+.events-template-default .events-content-area {
+  .button-link {
+    margin: 1rem;
+    background: #FFF;
+    
+    a {
+      color: $color__event-red;
+    }
+  }
+}
+
+/**********************/
 /* Single Events Page */
+/**********************/
 
 .events-template-default .events-content-area {
   max-width: 100%;
@@ -14,8 +396,11 @@
   height: 25rem;
   display: flex;
   flex-direction: row;
-  
   background-color: $color__event-red;
+
+  @include desktop {
+    height: 35rem;
+  }
 
   .header-image {
     display: none;
@@ -28,6 +413,7 @@
       overflow: hidden;
 
       img {
+        width: 100%;
         max-width: none;
       }
     }
@@ -47,12 +433,19 @@
     text-align: center;
 
     h1 {
-      margin: 1rem 0;
-      width: 66%;
-      
+      margin: 0.5rem 0;
+      width: 85%;
       color: white;
-      font-size: 1.3076923077rem;
+      font-size: 2rem;
+      line-height: 2.25rem;
       font-weight: normal;
+
+      @include desktop {
+        width: 66%;
+        line-height: 2rem;
+        margin: 0.5rem 0 1rem 0;
+        font-size: 2.5rem;
+      }
     }
 
     @include desktop {
@@ -77,11 +470,24 @@
     line-height: 14px;
     text-transform: uppercase;
 
+   @include desktop {
+      padding: 1rem 1.5rem;
+      // right: 25px;
+    }
+
     .date-day {
       font-size: 1.6153846154rem;
+
+      @include desktop {
+        font-size: 2rem;
+      }
     }
     .date-month {
       font-size: 0.7692307692rem;
+
+      @include desktop {
+        font-size: 1rem;
+      }
     }
 
     p {
@@ -89,41 +495,33 @@
     }
   }
 
+  .location-container {
+    margin-top: 3rem;
+  }
+
   .event-location {
     font-size: 1rem;
     text-transform: uppercase;
+
+    @include desktop {
+      font-size: 1.5rem;
+    }
   }
 
   .event-location, .event-hours {
     display: inline-block;
     margin: 0;
-    font-weight: bold;
+    font-weight: 600;
   }
 
   .event-hours {
-    font-size: 0.7692307692rem;
-  }
+    font-size: 1rem;
 
-  .picatic-link {
-    margin: 1rem 0;
-    display: block;
-    background-color: white;
-    border-radius: 3px;
-    color: $color__event-red;
-    text-decoration: none;
-    
-    &:hover {
-      // to do
-    }
-
-    .link-text {
-      margin: 0;
-      padding: 0.7692307692rem;
-      font-size: 0.7692307692rem;
-      font-weight: bold;
-      text-transform: uppercase;
+    @include desktop {
+      font-size: 1.5rem;
     }
   }
+
 }
 
 .event-about {
@@ -149,11 +547,16 @@
     }
 
     .about-title {
-      margin: 36px 0;
-      font-size: 1.6153846154rem;
+      margin: 30px 0;
+      font-size: 2.25rem;
       font-weight: bold;
       text-transform: uppercase;
       
+      @include desktop {
+        font-size: 3rem;
+        line-height: 3.7rem;
+      }
+
       span {
         display: inline;
 
@@ -170,27 +573,44 @@
     padding: $content-padding;
     display: flex;
     flex-basis: 100%;
-    flex-direction: row;
     flex-wrap: wrap;
     list-style-type: none;
   
     @include desktop {
+      padding: 3rem 5rem 1rem 1rem;;
       flex-basis: 75%;
+      flex-wrap: nowrap;
     }
 
     li {
       flex-basis: 100%;
       text-align: center;
+
+      @include desktop {
+        flex-basis: 45%;
+        text-align: left;
+      }
     }
   
     .details-title {
+      margin: 0;
       font-size: 1.6153846154rem;
       font-weight: bold;
+      
+      @include desktop {
+        padding: 0 2rem;
+        font-size: 2rem;
+      }
     }
 
     .details-content {
-      font-size: 1rem;
+      color: rgb(28, 28, 28);
+      font-size: 1.25rem;
       font-weight: bold;
+
+      @include desktop {
+        padding: 0 2rem;
+      }
     }
   }
 }
@@ -206,6 +626,10 @@
     font-size: 1.6153846154rem;
     font-weight: bold;
     text-transform: uppercase;
+
+    @include desktop {
+      font-size: 2rem;
+    }
   }
 
   .schedule-slider {
@@ -234,12 +658,22 @@
       position: relative;
 
       color: white;
+      font-weight: 500;
       line-height: 150px;
       text-align: center;
      
       p {
         margin: 0;
-        line-height: 14px;
+        line-height: 1.5rem;
+      }
+
+      @include desktop {
+        width: 25%;
+
+        p {
+          font-size: 1.5rem;
+          line-height: 1.5rem;
+        }
       }
     }
 
@@ -251,13 +685,14 @@
     }
 
     .control_prev, .control_next {
-      height: auto;
+      height: 100%;
       width: auto;
       padding: 4% 3%;
       position: absolute;
-      top: 26%;
+      top: 0;
       z-index: 999;
-      display: block;
+      display: flex;
+      align-items: center;
       
       color: $color__event-red;
       cursor: pointer;
@@ -265,6 +700,10 @@
       font-weight: 600;
       text-decoration: none;
       opacity: 0.8;
+
+      @include desktop {
+        top: 0;
+      }
     }
 
     .control_next {
