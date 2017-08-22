@@ -20,8 +20,10 @@
 		<div class="event-gradient"></div>
 		<div class="event-details">
 			<div class="location-container">
+				<?php $location_terms = get_the_terms( $post->ID, 'location' ); ?>
+				<?php $location_term = array_pop($location_terms); ?>
 				<i class="fa fa-map-marker" aria-hidden="true"></i>
-				<p class="event-location"><?php echo CFS()->get('event_location') ?></p>
+				<p class="event-location"><?php echo $location_term->name ?></p>
 			</div>
 			<?php the_title( sprintf( '<h2 class="event-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 			<div class="event-hours">

@@ -14,41 +14,27 @@ function child_theme_enqueue_styles() {
         get_stylesheet_directory_uri() . '/build/js/slider.min.js',
         array('jquery'), 
         false, true );
-
 }
+
 add_action( 'wp_enqueue_scripts', 'child_theme_enqueue_styles' );
 
-/**
- * Get selected events by location taxonomy.
- *
- * @return WP_Query location in the taxonomy term if one was selected, else all.
- */
-function get_locations_in_taxonomy_term() {
-	return new WP_Query( array(
-			'post_type'      => 'events',
-			'posts_per_page' => 500, // max # of options in dropdown
-			'tax_query'      => get_locations_in_taxonomy_term_tax_query(),
-	) );
-}
-
-function get_locations_in_taxonomy_term_tax_query() {
-	$selected_term = get_selected_location_dropdown_term();
-	// If a term has been selected, use that in the taxonomy query.
-	if ( $selected_term ) {
-		return array(
-			array(
-				'taxonomy' => 'location',
-				'field'    => 'term_id',
-				'terms'    => $selected_term,
-			),
-		);
+function events_custom_taxonomy_dropdown( $taxonomy, $order = 'DESC', $limit = '-1', $name, $show_option_all = null, $show_option_none = null ) {
+	$args = array(
+		'order' => $order,
+		'number' => $limit,
+	);
+	$terms = get_terms( $taxonomy, $args );
+	$name = ( $name ) ? $name : $taxonomy;
+	if ( $terms ) {
+		printf( '<select name="location" class="location-category-select" onchange="submit();">', esc_attr( $name ) );
+		if ( $show_option_all ) {
+			printf( '<option value="0">%s</option>', esc_html( $show_option_all ) );
+		}
+		foreach ( $terms as $term ) {
+			printf( '<option %s value="%s">%s</option>', ($term->slug == $_POST['location']) ? 'selected="selected"' : '', esc_attr( $term->slug ), esc_html( $term->name ) );
+		}
+		print( '</select>' );
 	}
-	return array();
 }
-
-function get_selected_location_dropdown_term() {
-	return isset( $_GET[ 'location' ] ) && $_GET[ 'location' ] ? sanitize_text_field( $_GET[ 'location' ] ) : '';
-}
-
 
 ?>

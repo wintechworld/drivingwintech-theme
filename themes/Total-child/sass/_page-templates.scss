@@ -8,7 +8,18 @@
 .post-type-archive-events, .post-type-archive-events .content-area {
   max-width: 100%;
   width: 100%;
-  font-family: "nunito", sans-serif;
+
+  #top-bar-wrap {
+    display: none;
+  }
+
+  .wpex-supports-mods {
+    display: none;
+  }
+}
+
+.post-type-archive-events #primary {
+  padding-bottom: 0!important;
 }
 
 .events-page-header {
@@ -34,20 +45,60 @@
   .featured-event {
     height: 80%;
     width: 80%;
+    padding: 1rem;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: space-around;
     justify-content: center;
 
     background: #FFF;
     box-shadow: 5px 5px 5px rgba(46, 46, 46, 0.42);
-    font-family: 'nunito';
     font-size: 1rem;
+    text-align: center;
+
+    p {
+      font-size: 1rem;
+    }
 
     @include desktop {
       height: 60%;
       width: 40%;
+      justify-content: center;
     }
+
+    .featured-event-title {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: bold!important;
+      text-align: center;
+      text-transform: uppercase;
+      
+      @include desktop {
+        font-size: 1.75rem;
+      }
+    }
+
+    .featured-event-location {
+      font-size: 1.25rem;
+      margin: 0;
+
+      @include desktop {
+        margin: 0 0 20px;
+      }
+    }
+
+  }
+
+}
+
+.post-type-archive-events .featured-heading {
+  margin: 0;
+  font-size: 1rem;
+  width: 100%;
+  text-align: center;
+
+  @include desktop {
+    font-size: 1.313em;
   }
 }
 
@@ -60,10 +111,14 @@
     width: 100%;
     display: flex;
     justify-content: center;
+
+    @include desktop {
+      justify-content: flex-end;
+    }
   }
 
-  .location-category-select {
-    padding: 0 0.5rem;
+  .location-category {
+    padding: 0.5rem;
     border: 1px solid rgb(137, 137, 137);
     width: 80%;
     display: flex;
@@ -77,6 +132,13 @@
     }
   }
   
+  .location-category-select {
+    font-size: 1.5rem;
+    width: 100%;
+    outline: none;
+    border: none;
+  }
+
   .fa-map-marker {
     padding: 0 0.5rem;
     color: $color__event-red;
@@ -88,9 +150,15 @@
     color: $color__text-grey;
     font-weight: bold;
     font-size: 1rem;
+    outline: none;
     text-transform: uppercase;
     -webkit-appearance: none;
   
+    &:focus {
+      outline: none;
+      border: none;
+    }
+
     @include desktop {
       font-size: 1.5rem;
     }
@@ -210,13 +278,13 @@
   .event-title {
     margin: 0;
     color: #FFF;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     line-height: 1.25rem;
     font-weight: 400;
 
     @include desktop {
-      font-size: 2.5rem;
-      line-height: 2.5rem;
+      font-size: 2.25rem;
+      line-height: 2.25rem;
     }
   }
 
@@ -227,7 +295,12 @@
   }
 
   .event-location {
+    font-size: 1rem;
     text-transform: uppercase;
+    
+    @include desktop {
+      font-size: 1.25rem;
+    }
   }
 
   .event-location, .event-hours {
@@ -237,14 +310,14 @@
   }
 
   .event-hours {
-    font-size: 0.9rem;
+    font-size: 1rem;
 
     p {
       display: inline-block;
     }
 
     @include desktop {
-      font-size: 1rem;
+      font-size: 1.20rem;
     }
   }
 }
@@ -386,13 +459,24 @@
 /* Single Events Page */
 /**********************/
 
+.events-template-default {
+  
+  #top-bar-wrap {
+    display: none;
+  }
+  
+  .wpex-supports-mods {
+    display: none;
+  }
+}
+
 .events-template-default .events-content-area {
   max-width: 100%;
   width: 100%;
-  font-family: "nunito", sans-serif;
+  // font-family: "nunito", sans-serif;
 }
 
-.event-header {
+.events-template-default .event-header {
   height: 25rem;
   display: flex;
   flex-direction: row;
@@ -524,7 +608,7 @@
 
 }
 
-.event-about {
+.events-template-default .event-about {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

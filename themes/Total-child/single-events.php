@@ -13,10 +13,30 @@ get_header();
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php get_template_part( 'template-parts/events', 'single' ); ?>
+				<?php get_template_part( 'partials/events', 'single' ); ?>
 
 			<?php endwhile; // End of the loop. ?>
 
+			<section class="events-listings">
+			<?php
+				$args = array(
+					'post_type'			 =>'events', 
+					'posts_per_page' => 4,
+					'order'          => 'ASC',
+				);
+
+				$events_query = new WP_Query($args); 
+				?>
+
+				<?php while ( $events_query->have_posts() ) : $events_query->the_post(); ?>
+				
+					<?php
+						get_template_part( 'partials/events', 'content' );
+					?>
+
+				<?php endwhile; ?>
+				<?php wp_reset_postdata(); ?>
+			</section>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
